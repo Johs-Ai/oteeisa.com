@@ -53,6 +53,20 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        /* Top Logo */
+        .top-logo {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+        }
+
+        .top-logo img {
+            height: 35px;
+            width: auto;
+        }
+
         /* Navigation Sidebar */
         .nav-sidebar {
             position: fixed;
@@ -129,13 +143,6 @@
             text-align: center;
         }
 
-        .hero-logo {
-            font-size: 56px;
-            font-weight: 700;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-        }
-
         .hero-tagline {
             font-size: 11px;
             letter-spacing: 2px;
@@ -190,6 +197,8 @@
             color: #aaa;
             margin-bottom: 20px;
             border: 1px solid #e5e5e5;
+            background-size: cover;
+            background-position: center;
         }
 
         .product-name {
@@ -209,14 +218,14 @@
 
         .color-swatches {
             display: flex;
-            gap: 8px;
+            gap: 5px;
             margin-bottom: 15px;
         }
 
         .color-swatch {
-            width: 25px;
-            height: 25px;
-            border: 2px solid transparent;
+            width: 16px;
+            height: 16px;
+            border: 1.5px solid transparent;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -232,7 +241,7 @@
 
         .swatch-white {
             background: #fff;
-            border: 2px solid #ddd;
+            border: 1.5px solid #ddd;
         }
 
         .add-to-cart-btn {
@@ -474,8 +483,8 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-logo {
-                font-size: 42px;
+            .hero-tagline {
+                font-size: 10px;
             }
 
             .nav-sidebar {
@@ -491,6 +500,10 @@
             .cart-item-row {
                 grid-template-columns: 60px 1fr 60px;
             }
+
+            .top-logo img {
+                height: 28px;
+            }
         }
     </style>
 </head>
@@ -501,6 +514,11 @@
         <span></span>
         <span></span>
     </button>
+
+    <!-- Top Logo -->
+    <div class="top-logo">
+        <img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/logo.png" alt="O'TEEISA">
+    </div>
 
     <!-- Navigation Sidebar -->
     <nav class="nav-sidebar" id="navSidebar">
@@ -514,10 +532,9 @@
     <div class="page active" id="home">
         <div class="hero">
             <video autoplay muted loop>
-                <source src="https://videos.pexels.com/video-files/3394650/3394650-sd_640_360_25fps.mp4" type="video/mp4">
+                <source src="https://videos.pexels.com/video-files/12841873/12841873-sd_640_360_25fps.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay">
-                <div class="hero-logo">O'TEEISA</div>
                 <div class="hero-tagline">Personality Does Not Require Excess</div>
                 <button class="cta-button" onclick="showPage('shop')">VIEW COLLECTION</button>
             </div>
@@ -592,17 +609,17 @@
     </footer>
 
     <script>
-        // Product Data
+        // Product Data with Images
         const products = [
-            { id: 1, name: 'Classic T-Shirt', price: 45, colors: ['Black', 'White'] },
-            { id: 2, name: 'Relaxed Fit T-Shirt', price: 50, colors: ['Black', 'White'] },
-            { id: 3, name: 'Oversized T-Shirt', price: 55, colors: ['Black', 'White'] },
-            { id: 4, name: 'Tailored Shorts', price: 65, colors: ['Black', 'White'] },
-            { id: 5, name: 'Cargo Shorts', price: 70, colors: ['Black', 'White'] },
-            { id: 6, name: 'Minimal Shorts', price: 60, colors: ['Black', 'White'] },
-            { id: 7, name: 'Crew Socks', price: 12, colors: ['Black', 'White'] },
-            { id: 8, name: 'High Socks', price: 15, colors: ['Black', 'White'] },
-            { id: 9, name: 'Premium Socks', price: 18, colors: ['Black', 'White'] }
+            { id: 1, name: 'Classic T-Shirt', price: 45, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop' },
+            { id: 2, name: 'Relaxed Fit T-Shirt', price: 50, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1556821552-9bb2ae7ad141?w=500&h=500&fit=crop' },
+            { id: 3, name: 'Oversized T-Shirt', price: 55, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1505286996881-b72b27e84530?w=500&h=500&fit=crop' },
+            { id: 4, name: 'Tailored Shorts', price: 65, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500&h=500&fit=crop' },
+            { id: 5, name: 'Cargo Shorts', price: 70, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1530268729831-4ca8923ee187?w=500&h=500&fit=crop' },
+            { id: 6, name: 'Minimal Shorts', price: 60, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1527522891525-7e2f4694acf7?w=500&h=500&fit=crop' },
+            { id: 7, name: 'Crew Socks', price: 12, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop' },
+            { id: 8, name: 'High Socks', price: 15, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1556821552-9bb2ae7ad141?w=500&h=500&fit=crop' },
+            { id: 9, name: 'Premium Socks', price: 18, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1505286996881-b72b27e84530?w=500&h=500&fit=crop' }
         ];
 
         let cart = [];
@@ -629,7 +646,7 @@
             
             container.innerHTML = productsToRender.map(product => `
                 <div class="product-card">
-                    <div class="product-image">[Product Image]</div>
+                    <div class="product-image" style="background-image: url('${product.image}');"></div>
                     <div class="product-name">${product.name}</div>
                     <div class="product-price">$${product.price}</div>
                     <div class="color-swatches">
