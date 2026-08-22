@@ -56,15 +56,19 @@
         /* Top Logo */
         .top-logo {
             position: fixed;
-            top: 25px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1001;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            transition: opacity 0.3s;
         }
 
-        .top-logo img {
-            height: 35px;
-            width: auto;
+        .top-logo:hover {
+            opacity: 0.7;
         }
 
         /* Navigation Sidebar */
@@ -114,6 +118,7 @@
             position: relative;
             width: 100%;
             height: 100vh;
+            overflow: hidden;
         }
 
         .hero video {
@@ -134,7 +139,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -186,19 +191,37 @@
             background: #fff;
         }
 
-        .product-image {
+        .product-image-container {
+            position: relative;
             width: 100%;
             aspect-ratio: 1;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #aaa;
+            overflow: hidden;
             margin-bottom: 20px;
             border: 1px solid #e5e5e5;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-image-alt {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-image-alt {
+            opacity: 1;
         }
 
         .product-name {
@@ -218,12 +241,12 @@
 
         .color-swatches {
             display: flex;
-            gap: 5px;
+            gap: 6px;
             margin-bottom: 15px;
         }
 
         .color-swatch {
-            width: 16px;
+            width: 30px;
             height: 16px;
             border: 1.5px solid transparent;
             cursor: pointer;
@@ -501,8 +524,13 @@
                 grid-template-columns: 60px 1fr 60px;
             }
 
-            .top-logo img {
-                height: 28px;
+            .top-logo {
+                font-size: 14px;
+            }
+
+            .color-swatch {
+                width: 25px;
+                height: 14px;
             }
         }
     </style>
@@ -516,23 +544,23 @@
     </button>
 
     <!-- Top Logo -->
-    <div class="top-logo">
-        <img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/logo.png" alt="O'TEEISA">
+    <div class="top-logo" onclick="showPage('home'); closeMenu();">
+        O'TEEISA
     </div>
 
     <!-- Navigation Sidebar -->
     <nav class="nav-sidebar" id="navSidebar">
-        <a href="#" onclick="showPage('home')">SHOP</a>
-        <a href="#" onclick="showPage('about')">ABOUT</a>
-        <a href="#" onclick="showPage('contact')">CONTACT</a>
-        <a href="#" onclick="showPage('cart')">CART</a>
+        <a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a>
+        <a href="#" onclick="showPage('about'); closeMenu();">ABOUT</a>
+        <a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a>
+        <a href="#" onclick="showPage('cart'); closeMenu();">CART</a>
     </nav>
 
     <!-- Home Page -->
     <div class="page active" id="home">
         <div class="hero">
-            <video autoplay muted loop>
-                <source src="https://videos.pexels.com/video-files/12841873/12841873-sd_640_360_25fps.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline>
+                <source src="https://videos.pexels.com/video-files/4838557/4838557-sd_640_360_30fps.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay">
                 <div class="hero-tagline">Personality Does Not Require Excess</div>
@@ -609,17 +637,17 @@
     </footer>
 
     <script>
-        // Product Data with Images
+        // Product Data with Images and Alternate Images
         const products = [
-            { id: 1, name: 'Classic T-Shirt', price: 45, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop' },
-            { id: 2, name: 'Relaxed Fit T-Shirt', price: 50, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1556821552-9bb2ae7ad141?w=500&h=500&fit=crop' },
-            { id: 3, name: 'Oversized T-Shirt', price: 55, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1505286996881-b72b27e84530?w=500&h=500&fit=crop' },
-            { id: 4, name: 'Tailored Shorts', price: 65, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500&h=500&fit=crop' },
-            { id: 5, name: 'Cargo Shorts', price: 70, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1530268729831-4ca8923ee187?w=500&h=500&fit=crop' },
-            { id: 6, name: 'Minimal Shorts', price: 60, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1527522891525-7e2f4694acf7?w=500&h=500&fit=crop' },
-            { id: 7, name: 'Crew Socks', price: 12, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop' },
-            { id: 8, name: 'High Socks', price: 15, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1556821552-9bb2ae7ad141?w=500&h=500&fit=crop' },
-            { id: 9, name: 'Premium Socks', price: 18, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1505286996881-b72b27e84530?w=500&h=500&fit=crop' }
+            { id: 1, name: 'Classic T-Shirt', price: 45, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1556821552-9bb2ae7ad141?w=500&h=500&fit=crop' },
+            { id: 2, name: 'Relaxed Fit T-Shirt', price: 50, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1556821552-9bb2ae7ad141?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1505286996881-b72b27e84530?w=500&h=500&fit=crop' },
+            { id: 3, name: 'Oversized T-Shirt', price: 55, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1505286996881-b72b27e84530?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop' },
+            { id: 4, name: 'Tailored Shorts', price: 65, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1530268729831-4ca8923ee187?w=500&h=500&fit=crop' },
+            { id: 5, name: 'Cargo Shorts', price: 70, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1530268729831-4ca8923ee187?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1527522891525-7e2f4694acf7?w=500&h=500&fit=crop' },
+            { id: 6, name: 'Minimal Shorts', price: 60, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1527522891525-7e2f4694acf7?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500&h=500&fit=crop' },
+            { id: 7, name: 'Crew Socks', price: 12, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1556821552-9bb2ae7ad141?w=500&h=500&fit=crop' },
+            { id: 8, name: 'High Socks', price: 15, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1556821552-9bb2ae7ad141?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1505286996881-b72b27e84530?w=500&h=500&fit=crop' },
+            { id: 9, name: 'Premium Socks', price: 18, colors: ['Black', 'White'], image: 'https://images.unsplash.com/photo-1505286996881-b72b27e84530?w=500&h=500&fit=crop', altImage: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop' }
         ];
 
         let cart = [];
@@ -630,12 +658,16 @@
             document.getElementById('navSidebar').classList.toggle('open');
         });
 
+        // Close Menu
+        function closeMenu() {
+            document.getElementById('hamburger').classList.remove('active');
+            document.getElementById('navSidebar').classList.remove('open');
+        }
+
         // Page Navigation
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            document.getElementById('hamburger').classList.remove('active');
-            document.getElementById('navSidebar').classList.remove('open');
             window.scrollTo(0, 0);
         }
 
@@ -646,7 +678,10 @@
             
             container.innerHTML = productsToRender.map(product => `
                 <div class="product-card">
-                    <div class="product-image" style="background-image: url('${product.image}');"></div>
+                    <div class="product-image-container">
+                        <div class="product-image" style="background-image: url('${product.image}');"></div>
+                        <div class="product-image-alt" style="background-image: url('${product.altImage}');"></div>
+                    </div>
                     <div class="product-name">${product.name}</div>
                     <div class="product-price">$${product.price}</div>
                     <div class="color-swatches">
