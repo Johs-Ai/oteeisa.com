@@ -151,31 +151,6 @@
             text-align: center;
         }
 
-        .hero-tagline {
-            font-size: 11px;
-            letter-spacing: 2px;
-            font-weight: 300;
-            margin-bottom: 50px;
-            max-width: 400px;
-        }
-
-        .cta-button {
-            padding: 12px 35px;
-            background: #fff;
-            color: #000;
-            border: none;
-            font-size: 10px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .cta-button:hover {
-            background: #000;
-            color: #fff;
-        }
-
         /* Featured Products */
         .featured-section {
             padding: 100px 40px;
@@ -509,10 +484,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-tagline {
-                font-size: 10px;
-            }
-
             .nav-sidebar {
                 width: 100%;
                 left: -100%;
@@ -548,7 +519,7 @@
 
     <!-- Top Logo -->
     <div class="top-logo" onclick="showPage('home'); closeMenu();">
-        <img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/Artboard%201%20copy%2011%402x.png" alt="O'TEEISA">
+        <img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/Artboard%201%20copy%2011@2x.png" alt="O'TEEISA">
     </div>
 
     <!-- Navigation Sidebar -->
@@ -565,10 +536,6 @@
             <video autoplay muted loop playsinline>
                 <source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/ZNZ%20vd.mp4" type="video/mp4">
             </video>
-            <div class="hero-overlay">
-                <div class="hero-tagline">Personality Does Not Require Excess</div>
-                <button class="cta-button" onclick="showPage('shop')">VIEW COLLECTION</button>
-            </div>
         </div>
 
         <section class="featured-section">
@@ -640,7 +607,6 @@
     </footer>
 
     <script>
-        // Product Data with Images from GitHub
         const products = [
             { id: 1, name: 'Classic T-Shirt', price: 45, colors: ['Black', 'White'], image: 'https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/Lucy%20Portrait.jpg', altImage: 'https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/Sia.jpg' },
             { id: 2, name: 'Relaxed Fit T-Shirt', price: 50, colors: ['Black', 'White'], image: 'https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/Sia.jpg', altImage: 'https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/YOUUUH.jpg' },
@@ -655,26 +621,22 @@
 
         let cart = [];
 
-        // Hamburger Menu Toggle
         document.getElementById('hamburger').addEventListener('click', function() {
             this.classList.toggle('active');
             document.getElementById('navSidebar').classList.toggle('open');
         });
 
-        // Close Menu
         function closeMenu() {
             document.getElementById('hamburger').classList.remove('active');
             document.getElementById('navSidebar').classList.remove('open');
         }
 
-        // Page Navigation
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0);
         }
 
-        // Render Products
         function renderProducts(containerId, productIds = null) {
             const container = document.getElementById(containerId);
             const productsToRender = productIds ? products.filter(p => productIds.includes(p.id)) : products;
@@ -699,20 +661,17 @@
             `).join('');
         }
 
-        // Add to Cart
         function addToCart(productId, color, price, name) {
             cart.push({ productId, name, color, price });
             updateCartDisplay();
             alert('Added to cart!');
         }
 
-        // Remove from Cart
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCartDisplay();
         }
 
-        // Update Cart Display
         function updateCartDisplay() {
             const cartItemsContainer = document.getElementById('cartItems');
             const cartSummary = document.getElementById('cartSummary');
@@ -743,7 +702,6 @@
             cartSummary.style.display = 'block';
         }
 
-        // Handle Checkout
         function handleCheckout() {
             if (cart.length === 0) {
                 alert('Your cart is empty');
@@ -755,7 +713,6 @@
             showPage('home');
         }
 
-        // Handle Contact Submit
         function handleContactSubmit(event) {
             event.preventDefault();
             const name = document.getElementById('name').value;
@@ -764,8 +721,7 @@
             showPage('home');
         }
 
-        // Initialize
-        renderProducts('featuredProducts', [1, 4, 7]); // Classic T-Shirt, Tailored Shorts, Crew Socks
+        renderProducts('featuredProducts', [1, 4, 7]);
         renderProducts('shopProducts');
     </script>
 </body>
