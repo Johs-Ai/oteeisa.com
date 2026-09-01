@@ -16,12 +16,12 @@
         .top-logo { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1001; cursor: pointer; transition: opacity 0.3s; }
         .top-logo img { height: 35px; width: auto; object-fit: contain; }
         .top-logo:hover { opacity: 0.7; }
-        .nav-sidebar { position: fixed; left: -300px; top: 0; width: 300px; height: 100vh; background: #fff; border-right: 1px solid #f0f0f0; z-index: 999; transition: left 0.3s; padding-top: 100px; }
-        .nav-sidebar.open { left: 0; }
-        .nav-sidebar a { display: block; text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; margin-bottom: 40px; transition: opacity 0.3s; }
-        .nav-sidebar a:hover { opacity: 0.6; }
         .page { display: none; }
         .page.active { display: block; }
+        .menu-page { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 1000; padding: 100px 40px; }
+        .menu-page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .menu-page a { display: block; font-size: 28px; font-weight: 300; letter-spacing: 2px; margin: 30px 0; text-decoration: none; color: #000; transition: opacity 0.3s; text-transform: uppercase; }
+        .menu-page a:hover { opacity: 0.6; }
         .hero-section { position: relative; width: 100%; height: 100vh; overflow: hidden; background: #000; }
         .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); z-index: 2; }
@@ -71,13 +71,19 @@
         .cart-total { display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
         .checkout-btn { width: 100%; padding: 12px; background: #000; color: #fff; border: none; font-size: 10px; letter-spacing: 1.5px; cursor: pointer; font-weight: 600; text-transform: uppercase; }
         footer { padding: 30px 40px; text-align: center; border-top: 1px solid #eee; font-size: 10px; letter-spacing: 1px; color: #888; }
-        @media (max-width: 768px) { .nav-sidebar { width: 100%; left: -100%; } .products-grid { grid-template-columns: 1fr; gap: 30px; } .cart-item-row { grid-template-columns: 60px 1fr 60px; } .hero-section { height: 60vh; } }
+        @media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; gap: 30px; } .cart-item-row { grid-template-columns: 60px 1fr 60px; } .hero-section { height: 60vh; } .menu-page a { font-size: 20px; } }
     </style>
 </head>
 <body>
     <button class="hamburger" id="hamburger"><span></span><span></span></button>
     <div class="top-logo" onclick="showPage('home'); closeMenu();"><img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/LOGO%20Official.png" alt="O'TEEISA"></div>
-    <nav class="nav-sidebar" id="navSidebar"><a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a><a href="#" onclick="showPage('about'); closeMenu();">ABOUT</a><a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a><a href="#" onclick="showPage('cart'); closeMenu();">CART</a></nav>
+    
+    <div class="menu-page" id="menuPage">
+        <a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a>
+        <a href="#" onclick="showPage('about'); closeMenu();">ABOUT</a>
+        <a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a>
+        <a href="#" onclick="showPage('cart'); closeMenu();">CART</a>
+    </div>
     
     <div class="page active" id="home">
         <section class="hero-section">
@@ -113,9 +119,9 @@
         ];
         let cart = [];
         const hamburger = document.getElementById('hamburger');
-        const navSidebar = document.getElementById('navSidebar');
-        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navSidebar.classList.toggle('open'); });
-        function closeMenu() { hamburger.classList.remove('active'); navSidebar.classList.remove('open'); }
+        const menuPage = document.getElementById('menuPage');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); menuPage.classList.toggle('active'); });
+        function closeMenu() { hamburger.classList.remove('active'); menuPage.classList.remove('active'); }
         function showPage(pageId) { document.querySelectorAll('.page').forEach(page => page.classList.remove('active')); document.getElementById(pageId).classList.add('active'); }
         function renderProducts(containerId, productIds = null) { const container = document.getElementById(containerId); const productsToRender = productIds ? products.filter(p => productIds.includes(p.id)) : products; container.innerHTML = productsToRender.map(p => `<div class="product-card"><div class="product-image-container"><div class="product-image" style="background-image: url('${p.image}');"></div><div class="product-image-alt" style="background-image: url('${p.altImage}');"></div></div><div class="product-name">${p.name}</div><div class="product-price">$${p.price}</div><div class="color-swatches">${p.colors.map((c, i) => `<div class="color-swatch swatch-${c.toLowerCase()} ${i === 0 ? 'active' : ''}" data-color="${c}"></div>`).join('')}</div><div class="action-row"><button class="add-to-bag-btn" onclick="addToCart(${p.id}, 'Black', ${p.price}, '${p.name}')">ADD TO BAG</button></div></div>`).join(''); }
         function addToCart(id, color, price, name) { cart.push({ id, color, price, name }); updateCartDisplay(); alert(`${name} added to cart`); }
