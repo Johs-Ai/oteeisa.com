@@ -47,6 +47,11 @@
         .add-to-bag-btn { flex: 1; height: 36px; padding: 0 12px; background: transparent; color: #000; border: 1px solid #000; font-size: 10px; letter-spacing: 1.5px; cursor: pointer; transition: all 0.3s; font-weight: 600; }
         .add-to-bag-btn:hover { background: #000; color: #fff; }
         .like-btn { display: none; }
+        .membership-section { width: 100%; height: 500px; overflow: hidden; position: relative; margin: 100px 0; }
+        .membership-section video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .membership-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.3); }
+        .membership-btn { padding: 16px 40px; background: #fff; color: #000; border: none; font-size: 14px; letter-spacing: 2px; cursor: pointer; font-weight: 600; text-transform: uppercase; transition: all 0.3s; }
+        .membership-btn:hover { background: #000; color: #fff; }
         .shop-section { padding: 80px 40px 100px; }
         .shop-title, .about-title, .contact-title, .cart-title { font-size: 32px; font-weight: 300; letter-spacing: 2px; margin-bottom: 50px; text-align: center; }
         .shop-title { margin-bottom: 60px; }
@@ -76,7 +81,7 @@
         .checkout-btn { width: 100%; padding: 12px; background: #000; color: #fff; border: none; font-size: 10px; letter-spacing: 1.5px; cursor: pointer; font-weight: 600; text-transform: uppercase; }
         footer { padding: 30px 40px; text-align: center; border-top: 1px solid #eee; font-size: 10px; letter-spacing: 1px; color: #888; }
         @media (max-width: 1200px) { .featured-section .products-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .nav-sidebar { width: 100%; left: -100%; } .featured-section .products-grid { grid-template-columns: 1fr; } .shop-section .products-grid { grid-template-columns: 1fr; gap: 30px; } .cart-item-row { grid-template-columns: 60px 1fr 60px; } .video-hero { height: 60vh; } }
+        @media (max-width: 768px) { .nav-sidebar { width: 100%; left: -100%; } .featured-section .products-grid { grid-template-columns: 1fr; } .shop-section .products-grid { grid-template-columns: 1fr; gap: 30px; } .cart-item-row { grid-template-columns: 60px 1fr 60px; } .video-hero { height: 60vh; } .membership-section { height: 300px; } }
     </style>
 </head>
 <body>
@@ -84,7 +89,7 @@
     <div class="top-logo" onclick="showPage('home'); closeMenu();"><img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/LOGO%20Official.png" alt="O'TEEISA"></div>
     <button class="heart-button" aria-label="Wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.5-8.6C.2 9.2 1.1 5.7 4.4 4.3c2-.9 4.4-.4 5.9 1.2L12 8l1.7-2.5c1.5-1.6 3.9-2.1 5.9-1.2 3.3 1.4 4.2 4.9 2.1 8.1C18.7 16.65 12 21 12 21z"/></svg></button>
     <nav class="nav-sidebar" id="navSidebar"><a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a><a href="#" onclick="showPage('about'); closeMenu();">ABOUT</a><a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a><a href="#" onclick="showPage('cart'); closeMenu();">CART</a></nav>
-    <div class="page active" id="home"><div class="video-hero"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video></div><section class="featured-section"><div class="products-grid" id="featuredProducts"></div></section></div>
+    <div class="page active" id="home"><div class="video-hero"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video></div><section class="featured-section"><div class="products-grid" id="featuredProducts"></div></section><div class="membership-section"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video><div class="membership-overlay"><button class="membership-btn">BECOME A MEMBER</button></div></div></div>
     <div class="page" id="shop"><section class="shop-section"><h1 class="shop-title">COLLECTION</h1><div class="products-grid" id="shopProducts"></div></section></div>
     <div class="page" id="about"><section class="about-section"><div class="about-content"><h1 class="about-title">ABOUT US</h1><p class="about-text">O'Teeisa is a contemporary Tanzanian clothing brand celebrating bold, authentic style. We design and create premium apparel that bridges traditional Tanzanian culture with modern aesthetics. Every piece is crafted with intention, using quality materials and sustainable practices to create clothing that stands the test of time.</p></div></section></div>
     <div class="page" id="contact"><section class="contact-section"><h1 class="contact-title">GET IN TOUCH</h1><div class="contact-content"><form class="contact-form" onsubmit="handleContactSubmit(event)"><div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div><div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div><button type="submit" class="submit-btn">SEND MESSAGE</button></form></div></section></div>
