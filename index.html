@@ -106,21 +106,21 @@
     <nav class="nav-wrapper">
         <div class="nav-left">
             <a href="#" onclick="showPage('shop');">SHOP</a>
-            <a href="#" onclick="showPage('about');">ABOUT</a>
+            <a href="#" onclick="showPage('about');">BRAND</a>
         </div>
         <div class="top-logo" onclick="showPage('home');"><img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/LOGO%20Official.png" alt="O'TEEISA"></div>
         <div class="nav-right">
             <a href="#" onclick="showPage('contact');">CONTACT</a>
-            <a href="#" onclick="showPage('cart');">CART</a>
+            <a href="#" onclick="showPage('cart');">BAG</a>
         </div>
     </nav>
     <button class="hamburger" id="hamburger"><span></span><span></span></button>
-    <nav class="nav-sidebar" id="navSidebar"><a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a><a href="#" onclick="showPage('about'); closeMenu();">ABOUT</a><a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a><a href="#" onclick="showPage('cart'); closeMenu();">CART</a></nav>
+    <nav class="nav-sidebar" id="navSidebar"><a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a><a href="#" onclick="showPage('about'); closeMenu();">BRAND</a><a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a><a href="#" onclick="showPage('cart'); closeMenu();">BAG</a></nav>
     <div class="page active" id="home"><div class="video-hero"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video></div><section class="featured-section"><div class="products-grid" id="featuredProducts"></div></section><section class="membership-section"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video><div class="membership-overlay"><button class="membership-btn" onclick="showPage('shop');">JOIN MEMBERSHIP</button></div></section></div>
     <div class="page" id="shop"><section class="shop-section"><h1 class="shop-title">COLLECTION</h1><div class="products-grid" id="shopProducts"></div></section></div>
-    <div class="page" id="about"><section class="about-section"><div class="about-content"><h1 class="about-title">ABOUT US</h1><p class="about-text">O'Teeisa is a contemporary Tanzanian clothing brand rooted in the vibrant culture of Dar es Salaam. We create timeless pieces that blend traditional aesthetics with modern design, celebrating the beauty of Tanzania through every stitch. Our mission is to provide high-quality clothing that tells a story and connects people to their heritage.</p></div></section></div>
+    <div class="page" id="about"><section class="about-section"><div class="about-content"><h1 class="about-title">BRAND</h1><p class="about-text">O'Teeisa is a contemporary Tanzanian clothing brand rooted in the vibrant culture of Dar es Salaam. We create timeless pieces that blend traditional aesthetics with modern design, celebrating the beauty of Tanzania through every stitch. Our mission is to provide high-quality clothing that tells a story and connects people to their heritage.</p></div></section></div>
     <div class="page" id="contact"><section class="contact-section"><h1 class="contact-title">GET IN TOUCH</h1><div class="contact-content"><form class="contact-form" onsubmit="handleContactSubmit(event);"><div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div><div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div><button type="submit" class="submit-btn">SEND</button></form></div></section></div>
-    <div class="page" id="cart"><section class="cart-section"><h1 class="cart-title">SHOPPING CART</h1><div class="cart-container"><div id="cartItems"></div><div class="cart-summary" id="cartSummary"></div></div></section></div>
+    <div class="page" id="cart"><section class="cart-section"><h1 class="cart-title">SHOPPING BAG</h1><div class="cart-container"><div id="cartItems"></div><div class="cart-summary" id="cartSummary"></div></div></section></div>
     <footer><p>&copy; 2024 O'TEEISA. All rights reserved. Dar es Salaam, Tanzania.</p></footer>
     <script>
         const products = [
