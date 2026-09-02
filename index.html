@@ -111,7 +111,7 @@
         function updateCartDisplay() { const cartItemsContainer = document.getElementById('cartItems'); const cartSummary = document.getElementById('cartSummary'); if (cart.length === 0) { cartItemsContainer.innerHTML = '<div class="cart-empty">Your cart is empty</div>'; cartSummary.style.display = 'none'; } else { cartItemsContainer.innerHTML = cart.map((item, index) => `<div class="cart-item-row"><div class="cart-item-image" style="background-image: url('https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/Lucy%20Portrait.jpg'); background-size: cover;"></div><div class="cart-item-details"><div class="cart-item-name">${item.name}</div><div class="cart-item-color">${item.color}</div></div><div class="cart-item-price">$${item.price}</div><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></div>`).join(''); const total = cart.reduce((sum, item) => sum + item.price, 0); document.getElementById('totalPrice').textContent = '$' + total; cartSummary.style.display = 'block'; } }
         function handleCheckout() { if (cart.length === 0) { alert('Your cart is empty'); return; } alert('Thank you for your order! Proceeding to payment...'); cart = []; updateCartDisplay(); showPage('home'); }
         function handleContactSubmit(event) { event.preventDefault(); const name = document.getElementById('name').value; alert(`Thank you, ${name}! We'll get back to you soon.`); event.target.reset(); }
-        renderProducts('featuredProducts', [1, 4, 7]); renderProducts('shopProducts');
+        renderProducts('featuredProducts', [1, 4, 7, 2]); renderProducts('shopProducts');
     </script>
 </body>
 </html>
