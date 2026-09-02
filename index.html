@@ -62,9 +62,12 @@
         .shop-section { padding: 80px 40px 100px; }
         .shop-title, .about-title, .contact-title, .cart-title { font-size: 32px; font-weight: 300; letter-spacing: 2px; margin-bottom: 50px; text-align: center; }
         .shop-title { margin-bottom: 60px; }
-        .about-section, .contact-section { padding: 100px 40px; background: #fff; }
-        .about-content { max-width: 700px; margin: 0 auto; }
+        .about-section { padding: 0; background: #fff; display: flex; margin-top: 70px; }
+        .about-content { width: 50%; padding: 100px 60px; display: flex; flex-direction: column; justify-content: center; }
+        .about-title { font-size: 32px; font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; text-align: left; }
         .about-text { font-size: 13px; line-height: 1.9; letter-spacing: 0.5px; font-weight: 300; }
+        .about-image { width: 50%; height: 100%; min-height: 600px; background-size: cover; background-position: center; }
+        .contact-section { padding: 100px 40px; background: #fff; }
         .contact-content { max-width: 500px; margin: 0 auto; }
         .form-group { margin-bottom: 25px; }
         .form-group label { display: block; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; }
@@ -98,7 +101,10 @@
             .featured-section .products-grid { grid-template-columns: 1fr; } 
             .shop-section .products-grid { grid-template-columns: 1fr; gap: 30px; } 
             .cart-item-row { grid-template-columns: 60px 1fr 60px; } 
-            .membership-section { height: 300px; } 
+            .membership-section { height: 300px; }
+            .about-section { flex-direction: column; }
+            .about-content { width: 100%; padding: 60px 40px; }
+            .about-image { width: 100%; min-height: 400px; }
         }
     </style>
 </head>
@@ -118,7 +124,7 @@
     <nav class="nav-sidebar" id="navSidebar"><a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a><a href="#" onclick="showPage('about'); closeMenu();">BRAND</a><a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a><a href="#" onclick="showPage('cart'); closeMenu();">BAG</a></nav>
     <div class="page active" id="home"><div class="video-hero"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video></div><section class="featured-section"><div class="products-grid" id="featuredProducts"></div></section><section class="membership-section"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video><div class="membership-overlay"><button class="membership-btn" onclick="showPage('shop');">JOIN MEMBERSHIP</button></div></section></div>
     <div class="page" id="shop"><section class="shop-section"><h1 class="shop-title">COLLECTION</h1><div class="products-grid" id="shopProducts"></div></section></div>
-    <div class="page" id="about"><section class="about-section"><div class="about-content"><h1 class="about-title">BRAND</h1><p class="about-text">O'Teeisa is a contemporary Tanzanian clothing brand rooted in the vibrant culture of Dar es Salaam. We create timeless pieces that blend traditional aesthetics with modern design, celebrating the beauty of Tanzania through every stitch. Our mission is to provide high-quality clothing that tells a story and connects people to their heritage.</p></div></section></div>
+    <div class="page" id="about"><section class="about-section"><div class="about-content"><h1 class="about-title">BRAND</h1><p class="about-text">O'Teeisa is a Tanzanian contemporary streetwear label exploring a quieter approach to modern clothing.<br><br>We create considered everyday pieces shaped by restraint, proportion, material, and personal expression. Rather than following the pace of trends, O'Teeisa moves with intention — producing in limited quantities and allowing each piece to exist beyond a single season.<br><br>Rooted in Tanzania, the brand draws from its surroundings, its people, and the simplicity of everyday life. Clothing is our medium, but the world around it is what gives it meaning.<br><br>O'Teeisa is built slowly — through design, observation, experimentation, and an ongoing conversation between what we make and the people who wear it.<br><br>From Tanzania, for wherever life takes you.</p></div><div class="about-image" style="background-image: url('https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/Lucy%20Portrait.jpg');"></div></section></div>
     <div class="page" id="contact"><section class="contact-section"><h1 class="contact-title">GET IN TOUCH</h1><div class="contact-content"><form class="contact-form" onsubmit="handleContactSubmit(event);"><div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div><div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div><button type="submit" class="submit-btn">SEND</button></form></div></section></div>
     <div class="page" id="cart"><section class="cart-section"><h1 class="cart-title">SHOPPING BAG</h1><div class="cart-container"><div id="cartItems"></div><div class="cart-summary" id="cartSummary"></div></div></section></div>
     <footer><p>&copy; 2024 O'TEEISA. All rights reserved. Dar es Salaam, Tanzania.</p></footer>
