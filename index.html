@@ -13,15 +13,16 @@
         .hamburger:hover span:nth-child(2) { width: 85%; transform: translateX(2px); }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(2px, 5px); }
         .hamburger.active span:nth-child(2) { transform: rotate(-45deg) translate(2px, -5px); }
-        .top-logo { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1001; cursor: pointer; transition: opacity 0.3s; }
+        .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; height: 70px; background: #fff; z-index: 999; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+        .top-logo { cursor: pointer; transition: opacity 0.3s; }
         .top-logo img { height: 35px; width: auto; object-fit: contain; }
         .top-logo:hover { opacity: 0.7; }
-        .heart-button { position: fixed; top: 30px; right: 30px; z-index: 1001; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: #fff; transition: opacity 0.3s; }
+        .nav-desktop { display: flex; align-items: center; gap: 40px; }
+        .nav-desktop a { text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; transition: opacity 0.3s; }
+        .nav-desktop a:hover { opacity: 0.6; }
+        .heart-button { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: #000; transition: opacity 0.3s; }
         .heart-button svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.7; }
         .heart-button:hover { opacity: 0.7; }
-        .nav-desktop { position: fixed; top: 0; left: 0; right: 0; height: 70px; background: #fff; display: flex; align-items: center; justify-content: center; z-index: 999; border-bottom: 1px solid #f0f0f0; }
-        .nav-desktop a { text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; margin: 0 40px; transition: opacity 0.3s; }
-        .nav-desktop a:hover { opacity: 0.6; }
         .nav-sidebar { position: fixed; left: -300px; top: 0; width: 300px; height: 100vh; background: #fff; border-right: 1px solid #f0f0f0; z-index: 999; transition: left 0.3s; padding-top: 100px; padding-left: 30px; }
         .nav-sidebar.open { left: 0; }
         .nav-sidebar a { display: block; text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; margin-bottom: 40px; transition: opacity 0.3s; }
@@ -86,28 +87,29 @@
         @media (max-width: 1200px) { .featured-section .products-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) { 
             .hamburger { display: flex; }
-            .nav-desktop { display: none; }
+            .nav-wrapper { display: none; }
+            .hamburger { position: fixed; top: 30px; left: 30px; }
             .video-hero { margin-top: 0; height: 100vh; }
             .nav-sidebar { width: 100%; left: -100%; } 
             .featured-section .products-grid { grid-template-columns: 1fr; } 
             .shop-section .products-grid { grid-template-columns: 1fr; gap: 30px; } 
             .cart-item-row { grid-template-columns: 60px 1fr 60px; } 
             .membership-section { height: 300px; } 
-            .top-logo { top: 20px; left: 50%; }
-            .heart-button { top: 30px; right: 30px; }
         }
     </style>
 </head>
 <body>
-    <nav class="nav-desktop">
-        <a href="#" onclick="showPage('home');">SHOP</a>
-        <a href="#" onclick="showPage('about');">ABOUT</a>
-        <a href="#" onclick="showPage('contact');">CONTACT</a>
-        <a href="#" onclick="showPage('cart');">CART</a>
+    <nav class="nav-wrapper">
+        <div class="top-logo" onclick="showPage('home');"><img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/LOGO%20Official.png" alt="O'TEEISA"></div>
+        <div class="nav-desktop">
+            <a href="#" onclick="showPage('shop');">SHOP</a>
+            <a href="#" onclick="showPage('about');">ABOUT</a>
+            <a href="#" onclick="showPage('contact');">CONTACT</a>
+            <a href="#" onclick="showPage('cart');">CART</a>
+        </div>
+        <button class="heart-button" aria-label="Wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.5-8.6C.2 9.2 1.1 5.7 4.4 4.3c2-.9 4.4-.4 5.9 1.2L12 8l1.7-2.5c1.5-1.6 3.9-2.1 5.9-1.2 3.3 1.4 4.2 4.9 2.1 8.1C18.7 16.65 12 21 12 21z"/></svg></button>
     </nav>
     <button class="hamburger" id="hamburger"><span></span><span></span></button>
-    <div class="top-logo" onclick="showPage('home'); closeMenu();"><img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/LOGO%20Official.png" alt="O'TEEISA"></div>
-    <button class="heart-button" aria-label="Wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.5-8.6C.2 9.2 1.1 5.7 4.4 4.3c2-.9 4.4-.4 5.9 1.2L12 8l1.7-2.5c1.5-1.6 3.9-2.1 5.9-1.2 3.3 1.4 4.2 4.9 2.1 8.1C18.7 16.65 12 21 12 21z"/></svg></button>
     <nav class="nav-sidebar" id="navSidebar"><a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a><a href="#" onclick="showPage('about'); closeMenu();">ABOUT</a><a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a><a href="#" onclick="showPage('cart'); closeMenu();">CART</a></nav>
     <div class="page active" id="home"><div class="video-hero"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video></div><section class="featured-section"><div class="products-grid" id="featuredProducts"></div></section><div class="membership-section"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video><div class="membership-overlay"><button class="membership-btn">BECOME A MEMBER</button></div></div></div>
     <div class="page" id="shop"><section class="shop-section"><h1 class="shop-title">COLLECTION</h1><div class="products-grid" id="shopProducts"></div></section></div>
