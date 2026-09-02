@@ -14,16 +14,16 @@
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(2px, 5px); }
         .hamburger.active span:nth-child(2) { transform: rotate(-45deg) translate(2px, -5px); }
         .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; height: 70px; background: #fff; z-index: 999; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
-        .nav-left { display: flex; gap: 100px; flex: 1; }
+        .nav-left { display: flex; gap: 150px; flex: 1; }
         .nav-left a { text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; transition: opacity 0.3s; }
         .nav-left a:hover { opacity: 0.6; }
         .top-logo { cursor: pointer; transition: opacity 0.3s; position: absolute; left: 50%; transform: translateX(-50%); }
         .top-logo img { height: 35px; width: auto; object-fit: contain; }
         .top-logo:hover { opacity: 0.7; }
-        .nav-right { display: flex; gap: 100px; flex: 1; justify-content: flex-end; }
+        .nav-right { display: flex; gap: 150px; flex: 1; justify-content: flex-end; }
         .nav-right a { text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; transition: opacity 0.3s; }
         .nav-right a:hover { opacity: 0.6; }
-        .heart-button { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: #000; transition: opacity 0.3s; }
+        .heart-button { display: none; }
         .heart-button svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.7; }
         .heart-button:hover { opacity: 0.7; }
         .nav-sidebar { position: fixed; left: -300px; top: 0; width: 300px; height: 100vh; background: #fff; border-right: 1px solid #f0f0f0; z-index: 999; transition: left 0.3s; padding-top: 100px; }
@@ -112,7 +112,6 @@
         <div class="nav-right">
             <a href="#" onclick="showPage('contact');">CONTACT</a>
             <a href="#" onclick="showPage('cart');">CART</a>
-            <button class="heart-button" aria-label="Wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.5-8.6C.2 9.2 1.1 5.7 4.4 4.3c2-.9 4.4-.4 5.9 1.2L12 8l1.7-2.5c1.5-1.6 3.9-2.1 5.9-1.2 3.3 1.4 4.2 4.9 2.6 7.1C19 17 12 21 12 21z"></path></svg></button>
         </div>
     </nav>
     <button class="hamburger" id="hamburger"><span></span><span></span></button>
