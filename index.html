@@ -14,12 +14,15 @@
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(2px, 5px); }
         .hamburger.active span:nth-child(2) { transform: rotate(-45deg) translate(2px, -5px); }
         .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; height: 70px; background: #fff; z-index: 999; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
-        .top-logo { cursor: pointer; transition: opacity 0.3s; }
+        .nav-left { display: flex; gap: 40px; flex: 1; }
+        .nav-left a { text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; transition: opacity 0.3s; }
+        .nav-left a:hover { opacity: 0.6; }
+        .top-logo { cursor: pointer; transition: opacity 0.3s; position: absolute; left: 50%; transform: translateX(-50%); }
         .top-logo img { height: 35px; width: auto; object-fit: contain; }
         .top-logo:hover { opacity: 0.7; }
-        .nav-desktop { display: flex; align-items: center; gap: 40px; }
-        .nav-desktop a { text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; transition: opacity 0.3s; }
-        .nav-desktop a:hover { opacity: 0.6; }
+        .nav-right { display: flex; gap: 40px; flex: 1; justify-content: flex-end; }
+        .nav-right a { text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; transition: opacity 0.3s; }
+        .nav-right a:hover { opacity: 0.6; }
         .heart-button { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: #000; transition: opacity 0.3s; }
         .heart-button svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.7; }
         .heart-button:hover { opacity: 0.7; }
@@ -100,14 +103,16 @@
 </head>
 <body>
     <nav class="nav-wrapper">
-        <div class="top-logo" onclick="showPage('home');"><img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/LOGO%20Official.png" alt="O'TEEISA"></div>
-        <div class="nav-desktop">
+        <div class="nav-left">
             <a href="#" onclick="showPage('shop');">SHOP</a>
             <a href="#" onclick="showPage('about');">ABOUT</a>
+        </div>
+        <div class="top-logo" onclick="showPage('home');"><img src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/LOGO%20Official.png" alt="O'TEEISA"></div>
+        <div class="nav-right">
             <a href="#" onclick="showPage('contact');">CONTACT</a>
             <a href="#" onclick="showPage('cart');">CART</a>
+            <button class="heart-button" aria-label="Wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.5-8.6C.2 9.2 1.1 5.7 4.4 4.3c2-.9 4.4-.4 5.9 1.2L12 8l1.7-2.5c1.5-1.6 3.9-2.1 5.9-1.2 3.3 1.4 4.2 4.9 2.1 8.1C18.7 16.65 12 21 12 21z"/></svg></button>
         </div>
-        <button class="heart-button" aria-label="Wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.5-8.6C.2 9.2 1.1 5.7 4.4 4.3c2-.9 4.4-.4 5.9 1.2L12 8l1.7-2.5c1.5-1.6 3.9-2.1 5.9-1.2 3.3 1.4 4.2 4.9 2.1 8.1C18.7 16.65 12 21 12 21z"/></svg></button>
     </nav>
     <button class="hamburger" id="hamburger"><span></span><span></span></button>
     <nav class="nav-sidebar" id="navSidebar"><a href="#" onclick="showPage('shop'); closeMenu();">SHOP</a><a href="#" onclick="showPage('about'); closeMenu();">ABOUT</a><a href="#" onclick="showPage('contact'); closeMenu();">CONTACT</a><a href="#" onclick="showPage('cart'); closeMenu();">CART</a></nav>
