@@ -6,14 +6,15 @@
     <title>O'TEEISA - Contemporary Tanzanian Clothing</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #fff; color: #000; line-height: 1.6; }
+        html { height: 100%; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #fff; color: #000; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
         .hamburger { display: none; position: fixed; top: 30px; left: 30px; z-index: 1001; background: none; border: none; cursor: pointer; width: 24px; height: 10px; flex-direction: column; justify-content: space-between; }
         .hamburger span { width: 100%; height: 1.5px; background: #fff; transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease; transform-origin: center; }
         .hamburger:hover span:nth-child(1) { width: 85%; transform: translateX(2px); }
         .hamburger:hover span:nth-child(2) { width: 85%; transform: translateX(2px); }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(2px, 5px); }
         .hamburger.active span:nth-child(2) { transform: rotate(-45deg) translate(2px, -5px); }
-        .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; height: 70px; background: #fff; z-index: 999; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+        .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; height: 70px; background: #fff; z-index: 999; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
         .nav-left { display: flex; gap: 150px; flex: 1; }
         .nav-left a { text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; transition: opacity 0.3s; }
         .nav-left a:hover { opacity: 0.6; }
@@ -30,7 +31,7 @@
         .nav-sidebar.open { left: 0; }
         .nav-sidebar a { display: block; text-decoration: none; color: #000; font-size: 12px; letter-spacing: 1.5px; margin-bottom: 40px; transition: opacity 0.3s; }
         .nav-sidebar a:hover { opacity: 0.6; }
-        .page { display: none; }
+        .page { display: none; flex: 1; }
         .page.active { display: block; }
         .video-hero { width: 100%; height: 100vh; overflow: hidden; position: relative; margin-top: 70px; }
         .video-hero video { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -91,7 +92,7 @@
         .cart-total { display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 12px; font-weight: 600; letter-spacing: 1px; }
         .checkout-btn { width: 100%; padding: 12px; background: #000; color: #fff; border: none; font-size: 10px; letter-spacing: 1.5px; cursor: pointer; font-weight: 600; text-transform: uppercase; transition: all 0.3s; }
         .checkout-btn:hover { background: #333; }
-        footer { padding: 30px 40px; text-align: center; border-top: 1px solid #eee; font-size: 10px; letter-spacing: 1px; color: #888; }
+        footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 30px 40px; text-align: center; border-top: 1px solid #eee; font-size: 10px; letter-spacing: 1px; color: #888; background: #fff; z-index: 998; }
         @media (max-width: 1200px) { .featured-section .products-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) { 
             .hamburger { display: flex; }
@@ -102,11 +103,11 @@
             .featured-section .products-grid { grid-template-columns: 1fr; } 
             .shop-section .products-grid { grid-template-columns: 1fr; gap: 30px; } 
             .cart-item-row { grid-template-columns: 60px 1fr 60px; } 
-            .membership-section { height: 300px; }
+            .membership-section { height: 300px; } 
             .about-section { flex-direction: column; min-height: auto; }
             .about-wrapper { flex-direction: column; }
             .about-content { width: 100%; padding: 60px 40px; }
-            .about-image { width: 100%; height: 400px; aspect-ratio: auto; }
+            .about-image { width: 100%; height: 400px; }
         }
     </style>
 </head>
@@ -127,8 +128,8 @@
     <div class="page active" id="home"><div class="video-hero"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video></div><section class="featured-section"><div class="products-grid" id="featuredProducts"></div></section><section class="membership-section"><video autoplay muted loop playsinline><source src="https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/VID.mp4" type="video/mp4"></video><div class="membership-overlay"><button class="membership-btn" onclick="showPage('shop');">JOIN MEMBERSHIP</button></div></section></div>
     <div class="page" id="shop"><section class="shop-section"><h1 class="shop-title">COLLECTION</h1><div class="products-grid" id="shopProducts"></div></section></div>
     <div class="page" id="about"><section class="about-section"><div class="about-wrapper"><div class="about-content"><h1 class="about-title">BRAND</h1><p class="about-text">O'Teeisa is a Tanzanian contemporary streetwear label exploring a quieter approach to modern clothing.<br><br>We create considered everyday pieces shaped by restraint, proportion, material, and personal expression. Rather than following the pace of trends, O'Teeisa moves with intention — producing in limited quantities and allowing each piece to exist beyond a single season.<br><br>Rooted in Tanzania, the brand draws from its surroundings, its people, and the simplicity of everyday life. Clothing is our medium, but the world around it is what gives it meaning.<br><br>O'Teeisa is built slowly — through design, observation, experimentation, and an ongoing conversation between what we make and the people who wear it.<br><br>From Tanzania, for wherever life takes you.</p></div><div class="about-image" style="background-image: url('https://raw.githubusercontent.com/Johs-Ai/oteeisa.com/main/Lucy%20Portrait.jpg');"></div></div></section></div>
-    <div class="page" id="contact"><section class="contact-section"><h1 class="contact-title">GET IN TOUCH</h1><div class="contact-content"><form class="contact-form" onsubmit="handleContactSubmit(event);"><div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div><div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div><button type="submit" class="submit-btn">SEND</button></form></div></section></div>
-    <div class="page" id="cart"><section class="cart-section"><h1 class="cart-title">SHOPPING BAG</h1><div class="cart-container"><div id="cartItems"></div><div class="cart-summary" id="cartSummary"></div></div></section></div>
+    <div class="page" id="contact"><section class="contact-section"><h1 class="contact-title">GET IN TOUCH</h1><div class="contact-content"><form class="contact-form" onsubmit="handleContactSubmit(event)"><div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div><div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div><button type="submit" class="submit-btn">SEND</button></form></div></section></div>
+    <div class="page" id="cart"><section class="cart-section"><h1 class="cart-title">SHOPPING BAG</h1><div class="cart-container"><div id="cartItems"></div><div class="cart-summary" id="cartSummary" style="display:none;"><div class="cart-total"><span>TOTAL:</span><span id="cartTotal">$0</span></div><button class="checkout-btn" onclick="handleCheckout()">CHECKOUT</button></div></div></section></div>
     <footer><p>&copy; 2024 O'TEEISA. All rights reserved. Dar es Salaam, Tanzania.</p></footer>
     <script>
         const products = [
@@ -151,9 +152,9 @@
         function renderProducts(containerId, productIds = null) { const container = document.getElementById(containerId); const productsToRender = productIds ? products.filter(p => productIds.includes(p.id)) : products; container.innerHTML = productsToRender.map(product => `<div class="product-card"><div class="product-image-container"><div class="product-image" style="background-image: url('${product.image}')"></div><div class="product-image-alt" style="background-image: url('${product.altImage}')"></div></div><div class="product-name">${product.name}</div><div class="product-price">$${product.price}</div><div class="color-swatches">${product.colors.map((color, idx) => `<div class="color-swatch swatch-${color.toLowerCase()}" onclick="this.classList.add('active'); this.parentElement.querySelectorAll('.color-swatch').forEach((s, i) => { if(i !== ${idx}) s.classList.remove('active'); })"></div>`).join('')}</div><div class="action-row"><button class="add-to-bag-btn" onclick="addToCart(${product.id}, 'Black', ${product.price}, '${product.name}')">ADD TO BAG</button></div></div>`).join(''); }
         function addToCart(id, color, price, name) { cart.push({ id, color, price, name }); updateCartDisplay(); alert(`${name} added to cart`); }
         function removeFromCart(index) { cart.splice(index, 1); updateCartDisplay(); }
-        function updateCartDisplay() { const cartItemsContainer = document.getElementById('cartItems'); const cartSummary = document.getElementById('cartSummary'); if (cart.length === 0) { cartItemsContainer.innerHTML = '<div class="cart-empty">Your cart is empty</div>'; cartSummary.innerHTML = ''; return; } cartItemsContainer.innerHTML = cart.map((item, idx) => `<div class="cart-item-row"><div class="cart-item-image" style="background-image: url('${products.find(p => p.id === item.id).image}'); background-size: cover;"></div><div class="cart-item-details"><div class="cart-item-name">${item.name}</div><div class="cart-item-color">${item.color}</div></div><div class="cart-item-price">$${item.price}</div><button class="remove-btn" onclick="removeFromCart(${idx})">Remove</button></div>`).join(''); const total = cart.reduce((sum, item) => sum + item.price, 0); cartSummary.innerHTML = `<div class="cart-total"><span>TOTAL</span><span>$${total}</span></div><button class="checkout-btn" onclick="handleCheckout()">CHECKOUT</button>`; }
+        function updateCartDisplay() { const cartItemsContainer = document.getElementById('cartItems'); const cartSummary = document.getElementById('cartSummary'); if (cart.length === 0) { cartItemsContainer.innerHTML = '<div class="cart-empty">Your bag is empty</div>'; cartSummary.style.display = 'none'; } else { cartItemsContainer.innerHTML = cart.map((item, idx) => `<div class="cart-item-row"><div class="cart-item-image" style="background-image: url('${products.find(p => p.id === item.id).image}'); background-size: cover; background-position: center;"></div><div class="cart-item-details"><div class="cart-item-name">${item.name}</div><div class="cart-item-color">Color: ${item.color}</div><div class="cart-item-price">$${item.price}</div></div><div></div><button class="remove-btn" onclick="removeFromCart(${idx})">Remove</button></div>`).join(''); const total = cart.reduce((sum, item) => sum + item.price, 0); document.getElementById('cartTotal').textContent = `$${total}`; cartSummary.style.display = 'block'; } }
         function handleCheckout() { if (cart.length === 0) { alert('Your cart is empty'); return; } alert('Thank you for your order! Proceeding to payment...'); cart = []; updateCartDisplay(); showPage('home'); }
-        function handleContactSubmit(event) { event.preventDefault(); const name = document.getElementById('name').value; alert(`Thank you, ${name}! We'll get back to you soon.`); event.target.reset(); showPage('home'); }
+        function handleContactSubmit(event) { event.preventDefault(); const name = document.getElementById('name').value; alert(`Thank you, ${name}! We'll get back to you soon.`); event.target.reset(); }
         renderProducts('featuredProducts', [1, 4, 7, 2]); renderProducts('shopProducts');
     </script>
 </body>
