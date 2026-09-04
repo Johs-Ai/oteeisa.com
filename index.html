@@ -64,13 +64,13 @@
         .membership-btn:hover { background: #000; color: #fff; }
         .shop-section { padding: var(--spacing-2xl) var(--spacing-lg) calc(var(--spacing-2xl) + 50px); }
         .shop-title, .contact-title, .cart-title { font-size: 32px; font-weight: 300; letter-spacing: 2px; margin-bottom: var(--spacing-2xl); text-align: center; }
-        .about-section { padding: 0; background: #fff; display: flex; margin-top: 70px; align-items: stretch; justify-content: center; min-height: 700px; }
-        .about-wrapper { display: flex; width: 100%; max-width: 1400px; margin: 0 auto; align-items: stretch; }
-        .about-content { width: 50%; padding: var(--spacing-2xl) var(--spacing-xl); display: flex; flex-direction: column; justify-content: center; }
+        .about-section { padding: var(--spacing-2xl) var(--spacing-lg); background: #fff; display: flex; margin-top: 70px; align-items: stretch; justify-content: center; min-height: auto; }
+        .about-wrapper { display: flex; width: 100%; max-width: 1400px; margin: 0 auto; align-items: stretch; gap: var(--spacing-lg); }
+        .about-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         .about-title { font-size: 32px; font-weight: 300; letter-spacing: 2px; margin-bottom: var(--spacing-lg); text-align: left; }
         .about-text { font-size: 13px; line-height: 1.9; letter-spacing: 0.5px; font-weight: 300; }
-        .about-image { width: 50%; aspect-ratio: 4 / 5; background-size: cover; background-position: center; }
-        .contact-section { padding: var(--spacing-3xl) var(--spacing-lg); background: #fff; }
+        .about-image { flex: 1; aspect-ratio: 4 / 5; background-size: cover; background-position: center; }
+        .contact-section { padding: var(--spacing-2xl) var(--spacing-lg); background: #fff; }
         .contact-content { max-width: 500px; margin: 0 auto; }
         .form-group { margin-bottom: var(--spacing-lg); }
         .form-group label { display: block; font-size: 10px; letter-spacing: 1.5px; margin-bottom: var(--spacing-xs); font-weight: 600; text-transform: uppercase; }
@@ -108,9 +108,9 @@
             .cart-section { padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-xl) + 50px); }
             .cart-item-row { grid-template-columns: 60px 1fr 60px; } 
             .membership-section { height: 300px; } 
-            .about-section { flex-direction: column; min-height: auto; }
-            .about-wrapper { flex-direction: column; }
-            .about-content { width: 100%; padding: var(--spacing-lg) var(--spacing-md); }
+            .about-section { padding: var(--spacing-lg) var(--spacing-md); flex-direction: column; min-height: auto; }
+            .about-wrapper { flex-direction: column; gap: 0; }
+            .about-content { width: 100%; }
             .about-image { width: 100%; height: 400px; }
             .contact-section { padding: var(--spacing-lg) var(--spacing-md); }
         }
